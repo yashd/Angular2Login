@@ -1,0 +1,155 @@
+
+
+<h3>Home Page</h3>
+<nav>
+
+
+
+
+<div class="row tools-setup-wrapper" *ngIf="contains('LMS_NON_ADMIN')" >
+        	<div class="column small-12 button-container">
+                <h2 class="sub-header">LMS - MHE ProductsSetup tools</h2>
+                <div class="row">
+                	<div class="columns small-12">
+                        <a class="buttons btbl medium-text font-soft-semibold">
+                            <button  (click)="LmsSetup()">LMS Integration setup </button>
+                        </a>
+                 
+                        <a class="buttons btbl medium-text font-soft-semibold"  *ngIf="contains('TEST_LTI_ROLE')" href="/mghmiddleware/lmsinstallationsetup/mheproducts/launch.htm">
+                           <button> Test LTI Launch </button>
+                        </a>
+
+
+                        <a class="buttons btbl medium-text font-soft-semibold" href="/mghmiddleware/lmsinstallationsetup/deploy/assignment.htm">
+                             <button> Test Deploy Assignment </button>
+                        </a>
+                       
+                      
+                        <a class="buttons btbl medium-text font-soft-semibold"    *ngIf="contains('MANUAL_SYNC_ADMIN')"  href="/mghmiddleware/lmsinstallationsetup/manualsync.htm">
+                           <button> Manual Sync </button>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+  <br>
+
+
+
+
+
+            <div class="column small-12 button-container"  *ngIf="contains('VIEW_MW_METRICS')" >
+                <h2 class="sub-header">Dashboards</h2>
+                <div class="row">
+                	<div class="columns small-12">
+                        <a class="buttons btbl medium-text font-soft-semibold" href="/mghmiddleware/adminCentral/deepintegration.htm">
+                           <button> Deep Integration Reporting </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+
+
+           
+            <div class="column small-12 button-container" *ngIf="contains('NOTIFY_ROLE') || contains('GRADE_ROLE') ||contains('AUTO_PAIR_READONLY') || contains('AUTO_PAIR_ADMIN') ||contains('ADMIN_LOG_ACCESS') || contains('AUTO_PAIR')  ">
+                <h2 class="sub-header">Blackboard Connect Integration Tools</h2>
+                <div class="row">
+                	<div class="columns small-12">
+                		
+                        <a class="buttons btbl medium-text font-soft-semibold"  id="grade_synch_link_e" *ngIf="contains('NOTIFY_ROLE') || contains('GRADE_ROLE') ">
+                           <button> Grade Sync Monitor<br> for Blackboard Integration </button>
+                        </a>
+                    
+                        
+                        <a class="buttons btbl medium-text font-soft-semibold" id="view_auto_pair_configuration"  *ngIf="contains('AUTO_PAIR_ADMIN') || contains('AUTO_PAIR_READONLY') ">
+                           <button>  Show all Auto Copy Pair<br> Enabled School </button>
+                        </a>
+                     
+
+                        
+                        <a class="buttons btbl medium-text font-soft-semibold" id="add_auto_pair_configuration" *ngIf="contains('AUTO_PAIR_ADMIN')"  >
+                           <button> Enable Auto Copy Pair<br> for New School </button>
+                        </a>
+                         
+                        
+                        <a class="buttons btbl medium-text font-soft-semibold" id="add_update_auto_pair_configuration" *ngIf="contains('AUTO_PAIR')">
+                            <button>  Add / Update Auto<br> Copy Pair </button>
+                        </a>
+                       
+                        
+                       
+                        <a class="buttons btbl medium-text font-soft-semibold" href="/mghmiddleware/adminCentral/connectpolicydetails.htm" *ngIf="contains('CONNECT_LMS_POLICY')">
+                               <button> Connect LMS Policy </button>
+                        </a>
+                        
+                        <br><br>
+                        <!-- Added for Admin Central LS Past Due  -->
+                        
+                        <a class="buttons btbl medium-text font-soft-semibold" id="show_ls_pastdue_configuration" *ngIf="contains('PAST_DUE_VIEW')">
+                           <button>  Show all LS Past Due<br> Enabled School </button>
+                        </a>
+                         <!-- End for Admin Central LS Past Due  -->
+                        
+                        
+                        
+                        <a class="buttons btbl medium-text font-soft-semibold" id="update_ls_pastdue_configuration" *ngIf="contains('PAST_DUE_UPDATE')">
+                           <button>  Add/Update LS Past Due<br> Enabled School </button>
+                        </a>
+                         <!-- End for Admin Central LS Past Due  -->
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+             
+            <div class="column small-12 button-container"  *ngIf="contains('SWAP_ADMIN') || contains('SWAP_USER') ||contains('CLASS_LOOKUP_ADMIN') || contains('LMS_ADMIN') ||contains('BB_LOGGING_EVENTS') ">
+                <h2 class="sub-header">CXG - MHE Support Tool</h2>
+                <div class="row">
+                  <div class="columns small-12">
+                    
+                        <a class="buttons btbl medium-text font-soft-semibold" id="swap_instructor_link_e"  *ngIf="contains('SWAP_ADMIN') || contains('SWAP_USER') ">
+                           <button> Swap Instructor Page </button>
+                        </a>
+                        
+                       
+                        <a class="buttons btbl medium-text font-soft-semibold" id="setup_provider" *ngIf="contains('LMS_ADMIN')">
+                           <button> Setup Provider </button>
+                        </a>
+                        
+                        
+                        <a class="buttons btbl medium-text font-soft-semibold" id="class_lookup" *ngIf="contains('CLASS_LOOKUP_ADMIN')">
+                           <button>  Class Lookup Tool </button>
+                        </a>
+                        
+                       
+                        <a class="buttons btbl medium-text font-soft-semibold" id="log_events"  *ngIf="contains('BB_LOGGING_EVENTS')">
+                           <button>  Log Events </button>
+                        </a>
+                       
+                    </div>
+                </div>
+            </div>
+            
+
+
+             
+            <div class="column small-12 button-container" *ngIf="contains('MANAGE_ROLE_ADMIN')">
+                <h2 class="sub-header">Manage User Roles</h2>
+                <div class="row">
+                  <div class="columns small-12">
+                        <a class="buttons btbl medium-text font-soft-semibold" id="manage_roles">
+                           <button> Manage Roles </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+
+<br><br><br><br>
+  <button type="submit" (click)="user.logout()">Logout</button>
+</nav>

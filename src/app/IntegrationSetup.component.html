@@ -1,0 +1,300 @@
+<input type="hidden" name="pageId" id="pageId" value="lmsProviderConfig" />
+  
+  
+
+  <div id="lms-provider-setup-page">
+    <div class="page_header">
+      <h3>LMS Integration Setup:</h3>
+    </div>
+
+
+    <div class="Table" style="width:100%">
+          <div class="Heading">
+           
+            <div class="Cell2" style="width:40%">
+                <p>Search by Installation Id :</p>
+            </div>            
+       
+
+        <div *ngIf="hasRole('MANUAL_SYNC_ADMIN')"> 
+            <div class="Cell2"> </div>
+            <div class="Cell2 hide-customerid" style="width:40%">
+                  <p>Search by Customer Id :</p>
+            </div>
+           </div>
+            <div class="Cell2"> </div>              
+        </div>
+
+
+        <div class="Row">
+        <div class="Cell2" style="width:40%">
+          <input value="" type="text" id="installation_id" [(ngModel)]="installationId">
+        </div>
+        
+          <div *ngIf="hasRole('MANUAL_SYNC_ADMIN')">
+          <div class="Cell2 hide-customerid">
+            <p>[ OR ]</p>
+          </div>
+         
+          <div class="Cell2 hide-customerid" style="width:40%">
+            <input value="" type="text" id="customer_id">
+          </div>
+          </div>
+
+            <div class="Cell2">
+                <p>
+                  <button style="height: 15px; padding: 10px;" id="searchInstallation" name="searchInstallation" (click)="getSchoolInfo()">Search</button>
+                </p>
+            </div>
+        </div>
+
+      <!-- <div class="Row">
+            <div class="Cell2" style="width:70%" >
+                <p>
+                  <div id="errorMessage" style=" color: red;" class="hide"> Customer Id not found. Please enter a valid Customer Id. </div>
+                </p>
+            </div>
+        </div> -->
+    </div>
+
+    <p><div style="color: red;" id="errorMessage"  *ngIf="flag"> No school found. Do you want to setup new school? <button name="launchltirequest" style="height: 15px; padding: 10px;" id="launch_lti_request">Setup School</button></div>
+    <!-- <p><div id="errorMessageForCustomerId" style=" color: red;" class="hide"> Customer Id not found. Please enter a valid Customer Id or <a id="launch_lti" href="#">click here</a> for intial School Set-up. </div></p>
+    <p><div id="errorMessageForInstallationId" style=" color: red;" class="hide"> Installation Id not found. Please enter a valid Installation Id or <a id="setup_school_e" href="#">click here</a> for intial School Set-up. </div></p>
+     --><!-- <span>Search by Customer Id :</span>
+    <div style="margin-top: 10px;">
+      <input type="text" id="customerId" name="customerId">
+      <button style="height: 15px; padding: 10px;" id="searchInstallation" name="searchInstallation">Search</button>
+      <div id="errorMessage" style=" color: red;" class="hide"> Customer Id not found. Please enter a valid Customer Id. </div>
+    </div> -->
+    
+    
+
+    <div id="infoDiv"  *ngIf="flag">
+    <h4>Consumer Detail</h4>
+      <table border="1" >
+        <tr>
+          <td>S.No.</td>
+          <td>Customer Id</td>
+          <td>Installation Id</td>
+          <td>LMS Paired</td>
+          <!-- <td>Status</td> -->
+        </tr>
+        <tr>
+          <td>1</td>
+          <td><span id="custId"></span></td>
+          <td><span id="instId" value="123456"></span></td>
+          <td><span id="lmsPaired" value=""></span> <a id="change_lmspaired" href="#" ><i>(change LMS Type)</i></a></td>
+          <!-- <td><span id="status" value="Pending"></span></td> -->
+        </tr>
+      </table>
+      <br/>
+      <h4>Provider Mapping Status</h4>
+      <table border="1" id="provider_info"  *ngIf="flag" >
+      </table>
+      <br/>
+      <input type="hidden" id="existing_providers">
+      <input type="hidden" id="consumer_instance_id">
+      
+       <span style="float:right" *ngIf="hasRole('ADD_PROVIDER_ROLE')" ><img src="/mghmiddlewareweb/images/add.png" height="25" width="25" id="add_providers"></span>
+
+      <br>
+      <span id="providers_list">
+      <h4>Choose Provider</h4>
+      <span id="provider_main_list"></span>
+      </span>
+      <br>
+      <button id="add_provider" style="float:right;height: 10px; margin-top: -5px;"  *ngIf="flag" >Save Providers</button>
+      <br/>
+      <!-- <h4 class="msg-style hide" id="success-msg">Setup completed successfully earlier. .</h4><br> -->
+        <h4>Configuration</h4>
+        <div id="providers"></div>
+        <br>
+        <div id="setup_procedure">
+        <h4>Setup Procedure</h4>
+        <br>
+  
+        <ol type="a" id="option-list">
+          <li id="step1">Step 1. Map School Id with Provider ID
+             <div *ngIf="hasRole('LMS_ADMIN') ||  hasRole('PRODUCT_SETUP_ADMIN')">
+              <button name="mapInstallation" id="mapInstallation" class="provider_button" >Map</button> 
+                    <span id="mapInstallationSpan"></span>
+           </div>
+          </li>
+          
+           <!--    <li id="step2">Step 2. <a <c:if test="${ LMS_ROLES_SETUP != 'true' && LMS_ROLES_SETUP != 'Y' }">id="setup_roles_link_e"</c:if> >Configure LMS roles with Provider Roles</a></li> -->
+           <div id="lms_roles_setup_toggle" style="display:none">
+            <iframe id="viewRolesFrame" style="width: 101%;height: 300px;" *ngIf="flag" ></iframe>
+        </div>  
+              <li id="step3">Step 3. <a id="setup_config_link_e" href="#" >Setup Provider Configurations</a></li>
+                <div id="setup_configuration_div_main" style="display:none">
+                <div class="page_header">
+                <h3>Setup Provider Configuration Page </h3>
+                </div>
+              <table id="setup_configuration_table">
+                <thead>
+                  <tr>
+                    <th>KEY</th>
+                    <th>VALUES</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">School Name</span></td>
+                    <td><input id="SWITCH_TO_LMS_TEXT" class="" type="input" value="" />
+                      <input id="SWITCH_TO_LMS_TEXT_KEY" type="hidden"/>
+                    </td>
+                  </tr>
+                  <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">Custom Property</span></td>
+                    <td><input type="radio" name="IS_AUTO_COPY" id="IS_AUTO_COPY_Y" value="true"/>Yes
+                          <input type="radio" name="IS_AUTO_COPY" id="IS_AUTO_COPY_N" value="false" CHECKED/>No
+                          <input id="IS_AUTO_COPY_KEY" type="hidden"/>
+                        </td>
+                  </tr>
+                  <!-- <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">Enable Auto Population of Grades</span></td>
+                    <td><input type="radio" name="IS_GRADE_SYNC_ENABLED" id="IS_GRADE_SYNC_ENABLED_Y" value="true"/>Yes
+                          <input type="radio" name="IS_GRADE_SYNC_ENABLED" id="IS_GRADE_SYNC_ENABLED_N" value="false" CHECKED/>No
+                          <input id="IS_GRADE_SYNC_ENABLED_KEY" type="hidden"/>
+                        </td>
+                  </tr>
+                  <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">Enable Grades in Progress</span></td>
+                    <td><input type="radio" name="AUTO_POPULATE_COURSE_INFO_ENABLED" id="AUTO_POPULATE_COURSE_INFO_ENABLED_Y" value="true"/>Yes
+                          <input type="radio" name="AUTO_POPULATE_COURSE_INFO_ENABLED" id="AUTO_POPULATE_COURSE_INFO_ENABLED_N" value="false" CHECKED/>No
+                          <input id="AUTO_POPULATE_COURSE_INFO_ENABLED_KEY" type="hidden"/>
+                        </td>
+                  </tr> 
+                  <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">Send Grades in Points / Percentage</span></td>
+                    <td><input type="radio" name="SCORE_TYPE" id="SCORE_TYPE_Y" value="true"/>Yes
+                          <input type="radio" name="SCORE_TYPE" id="SCORE_TYPE_N" value="false" CHECKED/>No
+                          <input id="SCORE_TYPE_KEY" type="hidden"/>
+                        </td>
+                  </tr>
+                  <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">Auto Creation of Accounts</span></td>
+                    <td><input type="radio" name="IS_LMS_ACCOUNT_CREATION" id="IS_LMS_ACCOUNT_CREATION_Y" value="true"/>Yes
+                          <input type="radio" name="IS_LMS_ACCOUNT_CREATION" id="IS_LMS_ACCOUNT_CREATION_N" value="false" CHECKED/>No
+                          <input id="IS_LMS_ACCOUNT_CREATION_KEY" type="hidden"/>
+                        </td>
+                  </tr>
+                  <tr class="feature_key_value_row_e">
+                    <td><span class="feature_key_name_e">Policy Settings Text</span></td>
+                    <td><input id="SCORE_TYPE_SETTINGS_TEXT" class="" type="input" value="" />
+                      <input id="SCORE_TYPE_SETTINGS_TEXT_KEY" type="hidden"/>
+                    </td>
+                  </tr>-->
+                </tbody>
+              </table>
+              
+              <table id="setup_configuration_controls_table" *ngIf="hasRole('LMS_ADMIN') ||  hasRole('PRODUCT_SETUP_ADMIN')">
+                <tbody>
+                  <tr class="">
+                    <td>
+                      <a href="javascript:void 0;"  id="save_e"  class="controls"> SAVE </a>
+                      <a href="javascript:void 0;" id="setup_configuration_close_e" class="controls"> CLOSE </a>
+                    </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+                    
+                </div>
+
+
+              <li id="step4">Step 4. Verify Setup
+            
+                <button name="setup_verifysetup" id="setup_verifysetup_link_e" class="provider_button" *ngIf="hasRole('LMS_ADMIN') ||  hasRole('PRODUCT_SETUP_ADMIN')">Verify !</button> 
+             
+              <br>
+              <br>
+              <h4 class="msg-style " *ngIf="flag" id="provider-setup-success-msg">Setup completed successfully earlier.</h4><br> 
+              </li>
+              <li id="step5">Step 5. Customer Id
+                <span>
+                  <input type="text" name='search_customer_id' id="search_customer_id" placeholder="Customer Id" value="" style="width: 25%;float: right;margin-right: 61%;margin-top: 0%;">
+                  <button  name="search_customerId_btn" id="search_customerId_btn" class="provider_button" style="float: right;margin-right: 52%;margin-top: -3%;">Search</button>
+              </span> 
+              <br>
+              <br>
+              <h4  *ngIf="flag" id="customer-id-validate-msg" style="color:green;">Customer Id is Validated.</h4><br>
+              <h4 class="msg-style " *ngIf="flag" id="customer-id-invalid-msg">Customer Id is not Validated.</h4><br>
+              <h4 class="msg-style " *ngIf="flag" id="customer-id-not-found-msg">Customer Id not found.</h4><br> 
+              </li>
+          </ol>
+        </div>
+        </div>
+    
+    <h4 class=" msg-style"  *ngIf="flag" id="warning-msg">Ask your admin to validate the installation .<h4>
+    <%-- school_set div : START --%>  
+    <div id="school_setup" *ngIf="flag" >
+     
+      <div id="validationErrorMessage" style="color:red;" *ngIf="flag" ></div> 
+       <table id="school_set_tb">
+      <tbody>
+       <tr>
+        <td width="35%">InstallationId: </td><td><input type="text" readonly="readonly" class="school_inp" name ="oauth_consumer_key" id="oauth_consumer_key" value=""></td>
+       </tr>
+      <tr>
+       <td>tool_consumer_info_product_family_code / Consumer:</td>
+       <td><select name="consumer_id" class="consumer_name school_select" id="consumer_name">
+                              <option value="">LMS Type</option>
+                               
+                                <div  *ngFor =" let consumer of  consumerTypeList" >
+                                  <option value={{consumer.type}}> {{consumer.type}} </option> 
+                                  </div>
+                               
+                            </select>
+       </td>
+      </tr>
+      <tr>
+         <td>tool_consumer_instance_guid /CustomerId:</td>
+         <td><input type="text" class="school_inp" readonly="readonly" name ="tool_consumer_instance_guid" id="tool_consumer_instance_guid" value=""></td>
+      </tr>
+      <tr>
+        <td>custom_mheproducts_name / Provider:</td>
+        <td><select name="provider_id" class="provider_type_sl school_select" id="provider_type_sl">
+                        <option value=""> Select a provider </option>
+                        
+                         <div  *ngFor="let provider of providerList" >
+                           <option value="{{provider.id}}"> {{provider.type}} /> </option>
+                            </div>
+                        
+                     </select>
+              </td>
+      </tr>
+      <tr><td>lti_version :</td><td> <input name="lti_version" value="LTI-1p0" type="text" class="school_inp"></td></tr>
+      <tr><td>user_id :</td><td> <input name="user_id" value="337841944" type="text" class="school_inp"></td></tr>
+      <tr><td>roles :</td><td> <input name="roles" value="urn:lti:role:ims/lis/Learner/Instructor" type="text" class="school_inp"></td></tr>
+      <tr><td>context_id :</td><td> <input name="context_id" value="123456" type="text" class="school_inp"></td></tr>
+      <tr><td>resource_link_id :</td><td> <input name="resource_link_id" value="98765" type="text" class="school_inp"></td></tr>
+      <tr><td>context_title :</td><td> <input name="context_title" value="DIcourse" type="text" class="school_inp"></td></tr>
+      <tr><td>launch_presentation_return_url :</td><td> <input name="launch_presentation_return_url" value="http://lmsng.school.edu/portal/123/page/988/" type="text" class="school_inp"></td></tr>
+      <tr><td>lis_person_contact_email_primary :</td><td> <input name="lis_person_contact_email_primary" value="user@school.edu" type="text" class="school_inp"></td></tr>
+      </tbody>
+      </table>
+      <br>
+      <br>
+      <button name="save_school" id="save_school_link_e" class="save_school_button">Launch</button>
+    </div>
+    <%-- school_setup div : END --%>
+    
+    <div id="setup_configuration_div"  *ngIf="flag" ></div>
+
+
+ 
+ 
+<div id="changelmsType"  *ngIf="flag"  style="width:200px;">
+ 
+        <a id="register_close_btn_e" title="close window" class="closeIcon" style="margin-top: -33px; margin-right: -95px"href="javascript:void 1;">close window</a><br>
+        <select name="consumer_id" class="consumer_name school_select" id="consumer_name1">
+                                                            <option value="">LMS Type</option>
+                                                                <div  *ngFor="let consumer of consumerTypeList">
+                                                                    <option value={{consumer.id}}> {{consumer.type}} /> </option>
+                                                                </div>
+                                                        </select> &nbsp;&nbsp;
+        
+        <button id="register_btn" style="border-radius:20px;height:13px;">Save</button>
+        </div>

@@ -1,0 +1,383 @@
+ /** lms.packed.css **/ 
+#manual_grade_sync_page.manual_grade_sync_page_wrpr {
+	padding: 19px 20px 20px;
+}
+#manual_grade_sync_page .grade_header .left {
+    width: 620px;
+}
+#manual_grade_sync_page h1.Pagehead {
+    clear: both;
+    color: #000000;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    margin: 0;
+}
+#manual_grade_sync_page h1.Pagehead {
+    font-size: 30px !important;
+    font-weight: bold;
+}
+#manual_grade_sync_page .select_nav {
+    width: 280px;
+}
+#manual_grade_sync_page .select_nav select {
+    font-size: 15px;
+    margin-left: 8px;
+    width: 220px;
+}
+#manual_grade_sync_page .select_nav select option {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding-right: 1em;
+}
+#manual_grade_sync_page .grade_header .grade_question {
+    top: 12px;
+}
+#manual_grade_sync_page .grade_header .sync-msg {
+	font-size: 0.9em;
+}
+#manual_grade_sync_page .show_list {
+	font-size: 0.86em;
+    margin-bottom: 10px;
+}
+#manual_grade_sync_page .select_sec {
+    margin: 0 0 0 5px;
+    width: 180px;
+}
+#manual_grade_sync_page .listwrpr .gradebookheaderlft {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 12px 15px;
+    position: relative;
+    text-align: right;
+}
+#manual_grade_sync_page .listwrpr .gradebookheaderlft select {
+    margin: 3px 15px 0 0;
+    width: 120px;
+}
+#manual_grade_sync_page .btn-typ-one {
+    background: -moz-linear-gradient(center top , #FDFDFD 0%, #F6F6F6 11%, #DBDBDB 42%, #D6D6D6 53%, #DBDBDB 63%, #F9F9F9 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #333333;
+}
+#manual_grade_sync_page .btn-typ-one, #manual_grade_sync_page .btn-typ-two {
+    border: 3px solid #CCCCCC;
+    border-radius: 9px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 2px 0;
+    text-align: center;
+    width: 92px;
+}
+#manual_grade_sync_page .listwrpr .table {
+    display: table;
+    width: 100%;
+}
+#manual_grade_sync_page .listwrpr .table_row_header {
+    background: #C0C0C0;
+    font-size: 11px;
+    font-weight: bold;
+}
+#manual_grade_sync_page .listwrpr .table_row_header, .listwrpr .table_row {
+    display: table-row;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell {
+    display: table-cell;
+    font-size: 14px;
+    padding: 20px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 120px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.aname, #manual_grade_sync_page .listwrpr .table_row .table_cell.aname {
+	padding-left: 19px;
+    text-align:left;
+    width: 484px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.type, #manual_grade_sync_page .listwrpr .table_row .table_cell.type {
+	width: 140px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.status, #manual_grade_sync_page .listwrpr .table_row .table_cell.status {
+    width: 140px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.sync_date {
+    padding-left: 43px;
+    text-align: left;
+    width: 160px;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell.sync_date {
+    font-size: 12px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.attempt {
+	width: 94px;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell.attempt {
+    font-size: 12px;
+    width: 94px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.chck {
+	background-color:transparent;
+    width: 36px;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell.chck {
+	background-color: #67B2E7;
+    width: 36px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.chck .cbox_head {
+	margin: 0;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell.chck .cbox {
+	margin: 0;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.empty, #manual_grade_sync_page .listwrpr .table_row .table_cell.empty {
+	width: 57px;
+	border-right:0px;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell {
+	border-bottom: 1px solid #BEBEBE;
+	border-right: 1px solid #BEBEBE;
+    display: table-cell;
+    font-size: 14px;
+    height: 59px;
+    padding: 7px 0 6px;
+    vertical-align: middle;
+    text-align:center;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell .assignmentTypesSm {
+    background-image: url("/connectweb/branding/common/images/common/assignmentTypesSmSpritev5h5.png");
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell .assignmentTypesSm.learnsmart_icon {
+    background-position: 0 -313px;
+    height: 39px;
+    width: 35px;
+    margin: 0 auto;
+}
+#manual_grade_sync_page .listwrpr .table_row .table_cell .assignmentTypesSm.achieve_icon {
+    background-position: 0 -647px;
+    height: 40px;
+    width: 35px;
+    margin: 0 auto;
+}
+#manual_grade_sync_page .listwrpr .last_sycd {
+	background:url(/connectweb/branding/common/images/template/connect_sprite_icon.png) no-repeat 0px -107px;
+    float: left;
+    height: 21px;
+    width: 21px;
+}
+#manual_grade_sync_page .listwrpr .failed {
+    background: url("/connectweb/branding/common/images/template/connect_sprite_icon.png") no-repeat scroll 1px -310px transparent;
+    float: left;
+    height: 21px;
+    width: 19px;
+}
+#manual_grade_sync_page .listwrpr .notready_grd {
+	background:url("/connectweb/branding/common/images/template/connect_sprite_icon.png") no-repeat 0px -151px;
+    float: left;
+    height: 21px;
+    margin-top: 0;
+    width: 25px;
+}
+#manual_grade_sync_page .listwrpr .progress {
+    background: url("/connectweb/branding/common/images/template/connect_sprite_icon.png") no-repeat scroll 2px -241px transparent;
+    border: none;
+    float: left;
+    height: 23px;
+    padding-left: 5px;
+    width: 21px;
+}
+#manual_grade_sync_page .listwrpr .not_sycd {
+    background: url("/connectweb/branding/common/images/template/connect_sprite_icon.png") no-repeat scroll 1px -178px transparent;
+    float: left;
+    height: 17px;
+    margin-left: 3px;
+    margin-top: 2px;
+    width: 18px;
+}
+#manual_grade_sync_page .listwrpr .grade_status {
+	font-size: 0.9em;
+    padding-left: 10px;
+    text-align: left;
+    width: 215px;
+}
+#manual_grade_sync_page .listwrpr .grade_status .grade_status_txt {
+    padding-left: 5px;
+}
+#manual_grade_sync_page .listwrpr .grade_status.notready_grd_cntr {
+	padding-left: 8px;
+}
+#manual_grade_sync_page .listwrpr .grade_status.notready_grd_cntr .grade_status_txt {
+	padding-left: 0;
+}
+#manual_grade_sync_page .section_home_link {
+	margin-right: 5px;
+}
+#manual_grade_sync_page .student_roster_link {
+	margin-left: 5px;
+}
+#manual_grade_sync_page .sync-btn {
+	margin-top: 12px;
+}
+#manual_grade_sync_page .mycourseheading_dn {
+    background: url("/connectweb/branding/common/images/template/connect_sprite_icon.png") no-repeat scroll left -368px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+    height: 19px;
+	margin-top: -2px;
+    padding: 0 9px;
+}
+#manual_grade_sync_page .mycourseheading_right {
+    background: url("/connectweb/branding/common/images/template/connect_sprite_icon.png") no-repeat scroll left -385px rgba(0, 0, 0, 0) !important;
+}
+#manual_grade_sync_page .cHeading {
+    font-size: 18px;
+    font-weight: bold;
+}
+#manual_grade_sync_page .cHeading .course_name {
+    margin-left: 0 !important;
+    float: left;
+    max-width: 425px;
+    word-wrap: break-word;
+}
+#manual_grade_sync_page .module-title {
+    margin-bottom: 15px;
+    position: relative;
+}
+#manual_grade_sync_page .listwrpr {
+    margin-bottom: 35px;
+}
+#manual_grade_sync_page .module_name_wrpr {
+    cursor: pointer;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.aname.aname-stud {
+    width: 524px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.type.type-stud {
+    width: 180px;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.sync_date.sync_date-stud {
+    padding-left: 52px;
+    width: 180px;
+}
+#manual_grade_sync_page .hideme {
+    display: none !important;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.brd-right {
+	border-right: 1px solid #A4A4A4;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.brd-both {
+	border-left: 1px solid #FFFFFF;
+	border-right: 1px solid #A4A4A4;
+}
+#manual_grade_sync_page .listwrpr .table_row_header .table_cell.brd-left {
+	border-left: 1px solid #FFFFFF;
+}
+#manual_grade_sync_page .go-bck-cntr {
+	margin-bottom: 22px;
+    margin-top: 10px;
+}
+#manual_grade_sync_page .sync_section_go_back_link {
+	border: 2px solid #E5E5E5;
+    padding: 5px;
+}
+#manual_grade_sync_page .section-detail-wrapper {
+    background-color: #E7E7E7;
+    border-radius: 3px;
+    color: #3A3832;
+    margin-bottom: 25px;
+    margin-top: 0 !important;
+    padding: 15px 20px;
+}
+#manual_grade_sync_page .medium-text.second-row {
+    display: inline-block;
+    font-size: 0.875em;
+    margin: 5px 0;
+    width: 365px;
+}
+#manual_grade_sync_page .grade_sync_page_top_content {
+    font-size: 0.9em;
+    font-style: italic;
+    padding: 0 0 15px;
+}
+#manual_grade_sync_page .head-title-dwn {
+	margin-left: 6px;
+}
+
+
+
+
+/**  roles.css**/
+
+
+
+
+body {
+    background-color: #FFFFFF;;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+table {
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 970px;
+}
+tr:nth-child(2n) td {
+    background-color: #EEEEEE;
+}
+th {
+    background-color: #BBBBBB;
+    color: #333333;
+    height: 50px;
+}
+td {
+    text-align: center;
+}
+td, th {
+    border-bottom: 1px solid #999999;
+    border-right: 1px solid #999999;
+    padding: 10px;
+}
+.controls
+{
+  color: #333333;
+ font-weight: bold;
+ text-decoration: underline;
+ margin:0 10px;
+}
+.controls:hover {
+ color: #333333;
+}
+.property_id{
+    width:60%;
+}
+select.provider_name {
+  width: 70% !important;
+}
+
+.hide
+{
+    display: none;
+}
+.error{
+    border: 2px solid red !important;
+    color: red;
+}
+.hide-customerid{
+    display: none !important;
+}
+div#facebox table {
+    width : 100px;
+}
+
+div#facebox table tr td {
+    background-color: white;
+    border: 0px;
+}
+
+div#facebox table table {
+    background-color: white;
+    border: 0px;
+}
